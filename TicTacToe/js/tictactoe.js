@@ -3,7 +3,7 @@ let selectedSquares = [];
 
 function placeXOrO(squareNumber) {
     if (!selectedSquares.some(element => element.includes(squareNumber))) {
-        let select= document.getElementById("squareNumber");
+        let select= document.getElementById(squareNumber);
         if (activePlayer === 'X') {
             select.style.backgroundImage = 'url("img/x.png")';
         } else {
@@ -16,7 +16,7 @@ function placeXOrO(squareNumber) {
         } else {
             activePlayer = 'X';
         }
-        audio('./media/place.mp3');
+        audio('./media/vine-boom.mp3');
         if (activePlayer === 'O') {
             disableClick();
             setTimeout(function () { computersTurn(); }, 1000);
@@ -59,7 +59,7 @@ function checkWinConditions() {
     function arrayIncludes(squareA, squareB, squareC) {
         const a = selectedSquares.includes(squareA);
         const b = selectedSquares.includes(squareB);
-        const c = selectedSquares.includes(squaresC);
+        const c = selectedSquares.includes(squareC);
         if(a === true && b === true && c === true) {return true;}
     }
 }
